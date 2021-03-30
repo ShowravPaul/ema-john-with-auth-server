@@ -12,6 +12,10 @@ const port = 5000
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res)=>{
+  res.send("hello! it's working from DB!! project ekhon local server depended na, ekhon heroku te host hoiche!! hurra!");
+})
+
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const productsCollection = client.db("emaJohnStore").collection("products");
